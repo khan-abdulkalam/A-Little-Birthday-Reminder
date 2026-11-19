@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little Birthday Reminder 💗 — 21 November 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush-pink: #f8c8dc;
+      --baby-pink: #ffe5ec;
+      --soft-lavender: #e6d6f5;
+      --deep-lavender: #b99be6;
+      --cream-white: #fffaf7;
+      --rose-gold: #d99b8c;
+      --rose-gold-light: #f3cfc4;
+      --rose-gold-deep: #b56c63;
+      --text-main: #563746;
+      --text-soft: #856172;
+      --glass-bg: rgba(255, 250, 247, 0.56);
+      --glass-border: rgba(255, 255, 255, 0.72);
+      --glass-shadow: 0 20px 50px rgba(181, 108, 99, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(135deg, #fff5f8 0%, #ffe5ec 28%, #f3e5fb 64%, #fffaf7 100%);
+      background-size: 240% 240%;
+      animation: dreamyGradient 18s ease infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @keyframes dreamyGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Background Layer */
+    .bg-scene {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.55;
+      will-change: transform;
+    }
+    .orb-1 {
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(248, 200, 220, 0.85), transparent 70%);
+      top: -80px; left: -60px;
+      animation: orbFloat 16s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(230, 214, 245, 0.85), transparent 70%);
+      bottom: -90px; right: -70px;
+      animation: orbFloat 20s ease-in-out infinite alternate-reverse;
+    }
+    .orb-3 {
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(243, 207, 196, 0.7), transparent 70%);
+      top: 42%; left: 55%;
+      animation: orbFloat 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(35px, -28px, 0) scale(1.12); }
+    }
+
+    /* Soft Clouds */
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      filter: blur(12px);
+      will-change: transform;
+    }
+    .cloud-1 {
+      width: 220px; height: 54px; top: 12%; left: -240px;
+      animation: cloudDrift 48s linear infinite;
+    }
+    .cloud-2 {
+      width: 290px; height: 66px; top: 72%; left: -320px;
+      opacity: 0.38;
+      animation: cloudDrift 62s linear infinite 12s;
+    }
+    .cloud-3 {
+      width: 180px; height: 46px; top: 28%; left: -200px;
+      opacity: 0.32;
+      animation: cloudDrift 54s linear infinite 26s;
+    }
+    @keyframes cloudDrift {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(calc(100vw + 400px), 0, 0); }
+    }
+
+    /* Twinkling Stars, Floating Hearts, Petals, Butterflies */
+    .bg-particle {
+      position: absolute;
+      will-change: transform, opacity;
+      user-select: none;
+    }
+
+    .star-dot {
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 8px 2px rgba(255, 235, 245, 0.9), 0 0 14px rgba(217, 155, 140, 0.6);
+      animation: twinkle var(--dur, 4s) ease-in-out infinite var(--delay, 0s);
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.7); }
+      50% { opacity: 0.95; transform: scale(1.25); }
+    }
+
+    .float-heart {
+      bottom: -40px;
+      animation: floatUp var(--dur, 14s) linear infinite var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translate3d(0, 0, 0) scale(0.75) rotate(0deg); opacity: 0; }
+      15% { opacity: var(--op, 0.65); }
+      85% { opacity: var(--op, 0.65); }
+      100% { transform: translate3d(var(--sway, 30px), -110vh, 0) scale(1.1) rotate(var(--rot, 18deg)); opacity: 0; }
+    }
+
+    .petal {
+      top: -30px;
+      border-radius: 75% 15% 75% 15%;
+      background: linear-gradient(135deg, #ffd6e0, #f8c8dc);
+      box-shadow: 0 2px 6px rgba(217, 155, 140, 0.25);
+      animation: petalFall var(--dur, 16s) linear infinite var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes petalFall {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.78; }
+      90% { opacity: 0.7; }
+      100% { transform: translate3d(var(--sway, 60px), 108vh, 0) rotate(320deg); opacity: 0; }
+    }
+
+    .butterfly {
+      animation: butterflyFlight var(--dur, 22s) ease-in-out infinite var(--delay, 0s);
+      opacity: 0.85;
+    }
+    .butterfly svg {
+      animation: wingFlutter 0.48s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+    @keyframes wingFlutter {
+      0% { transform: scaleX(1) scaleY(1); }
+      100% { transform: scaleX(0.45) scaleY(1.04); }
+    }
+    @keyframes butterflyFlight {
+      0% { transform: translate3d(-10vw, 70vh, 0) rotate(12deg); }
+      25% { transform: translate3d(25vw, 48vh, 0) rotate(-8deg); }
+      50% { transform: translate3d(58vw, 60vh, 0) rotate(10deg); }
+      75% { transform: translate3d(82vw, 32vh, 0) rotate(-14deg); }
+      100% { transform: translate3d(112vw, 45vh, 0) rotate(6deg); }
+    }
+
+    /* Main Single-Screen Layout */
+    .app-shell {
+      position: relative;
+      z-index: 2;
+      min-height: 100dvh;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 16px 18px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    /* Top Minimal Glass Controls */
+    .top-bar {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pill-btn {
+      appearance: none;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 18px rgba(181, 108, 99, 0.1);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pill-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 22px rgba(181, 108, 99, 0.18);
+    }
+    .pill-btn:active {
+      transform: scale(0.97);
+    }
+    .pill-btn.active {
+      background: linear-gradient(135deg, rgba(248, 200, 220, 0.75), rgba(230, 214, 245, 0.75));
+      border-color: rgba(217, 155, 140, 0.7);
+    }
+
+    /* Header */
+    .hero-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .eyebrow-badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose-gold-deep);
+      background: rgba(255, 250, 247, 0.72);
+      border: 1px solid rgba(217, 155, 140, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .main-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.7rem, 4.5vw, 2.45rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text-main);
+      line-height: 1.15;
+    }
+    .main-title span.script-accent {
+      font-family: 'Dancing Script', cursive;
+      color: var(--rose-gold-deep);
+      font-weight: 700;
+    }
+
+    /* Hero Clock Container */
+    .clock-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 4px 0;
+    }
+
+    .clock-aura {
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(248, 200, 220, 0.55) 0%, rgba(230, 214, 245, 0.32) 48%, transparent 72%);
+      filter: blur(18px);
+      z-index: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+    }
+
+    .clock-wrapper {
+      position: relative;
+      width: clamp(248px, 64vw, 316px);
+      height: clamp(248px, 64vw, 316px);
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255, 252, 250, 0.82), rgba(255, 232, 240, 0.58));
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 24px 60px rgba(181, 108, 99, 0.2),
+        inset 0 0 28px rgba(255, 255, 255, 0.85),
+        0 0 0 6px rgba(243, 207, 196, 0.28);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      animation: heartbeatPulse 3.2s ease-in-out infinite;
+      transition: box-shadow 0.8s ease, transform 0.6s ease;
+    }
+
+    @keyframes heartbeatPulse {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.016); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.01); }
+      70% { transform: scale(1); }
+    }
+
+    /* Hourly Celebration States on Clock */
+    .clock-wrapper.hourly-glow {
+      box-shadow:
+        0 0 55px rgba(248, 200, 220, 0.95),
+        0 0 95px rgba(217, 155, 140, 0.7),
+        inset 0 0 36px rgba(255, 255, 255, 0.95),
+        0 0 0 10px rgba(243, 207, 196, 0.55);
+    }
+    .clock-stage.hourly-active .clock-aura {
+      transform: scale(1.28);
+      opacity: 1;
+      background: radial-gradient(circle, rgba(255, 214, 224, 0.85) 0%, rgba(217, 155, 140, 0.5) 52%, transparent 74%);
+    }
+
+    .clock-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .hour-marker {
+      fill: var(--rose-gold);
+      filter: drop-shadow(0 0 4px rgba(217, 155, 140, 0.75));
+      transition: fill 0.4s ease;
+    }
+    .hour-marker.major {
+      fill: var(--rose-gold-deep);
+      filter: drop-shadow(0 0 6px rgba(181, 108, 99, 0.85));
+    }
+
+    .hand {
+      transform-origin: 150px 150px;
+      stroke-linecap: round;
+    }
+    .hand-celebrate {
+      transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Digital Readout Inside Clock */
+    .clock-digital-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 46px 24px 42px;
+      pointer-events: none;
+    }
+
+    .clock-top-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-gold-deep);
+      background: rgba(255, 255, 255, 0.76);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 155, 140, 0.3);
+    }
+
+    .clock-bottom-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255, 250, 247, 0.78);
+      padding: 5px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgba(181, 108, 99, 0.08);
+    }
+
+    .digital-time {
+      font-size: clamp(0.95rem, 3.2vw, 1.12rem);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      letter-spacing: 0.03em;
+    }
+    .digital-time .sec-pulse {
+      color: var(--rose-gold-deep);
+      display: inline-block;
+      transition: transform 0.15s ease;
+    }
+    .days-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--rose-gold-deep);
+    }
+
+    /* Orbiting Tiny Hearts Around Clock */
+    .clock-orbit-hearts {
+      position: absolute;
+      inset: -20px;
+      pointer-events: none;
+      z-index: 3;
+      animation: orbitSpin 28s linear infinite;
+    }
+    @keyframes orbitSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .orbit-heart {
+      position: absolute;
+      font-size: 13px;
+      filter: drop-shadow(0 2px 6px rgba(217, 155, 140, 0.45));
+      animation: orbitCounterSpin 28s linear infinite;
+    }
+    @keyframes orbitCounterSpin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(-180deg) scale(1.18); }
+      100% { transform: rotate(-360deg) scale(1); }
+    }
+
+    /* Burst Container for Hourly Magic */
+    .magic-burst-layer {
+      position: absolute;
+      inset: -40px;
+      pointer-events: none;
+      z-index: 6;
+      overflow: visible;
+    }
+    .burst-heart {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-size: 18px;
+      opacity: 0;
+      animation: burstHeartUp var(--bdur, 2.8s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes burstHeartUp {
+      0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translate(calc(-50% + var(--bx, 0px)), calc(-50% + var(--by, -160px))) scale(1.25) rotate(var(--brot, 15deg)); opacity: 0; }
+    }
+
+    .burst-sparkle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 10%, #f8c8dc 60%, transparent 100%);
+      box-shadow: 0 0 10px #fff, 0 0 16px #f3cfc4;
+      opacity: 0;
+      animation: burstSparkle 1.8s ease-out forwards;
+    }
+    @keyframes burstSparkle {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+      60% { opacity: 1; }
+      100% { transform: translate(calc(-50% + var(--sx, 80px)), calc(-50% + var(--sy, -80px))) scale(1.4); opacity: 0; }
+    }
+
+    /* Hourly Animated Notification Card */
+    .hourly-toast {
+      position: fixed;
+      top: 66px;
+      left: 50%;
+      transform: translate(-50%, -18px) scale(0.94);
+      z-index: 30;
+      width: min(92vw, 400px);
+      background: rgba(255, 250, 247, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 20px 50px rgba(181, 108, 99, 0.25), 0 0 24px rgba(248, 200, 220, 0.5);
+      border-radius: 22px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hourly-toast.visible {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+      pointer-events: auto;
+    }
+    .hourly-toast.variant-lavender {
+      background: linear-gradient(135deg, rgba(255, 250, 247, 0.9), rgba(230, 214, 245, 0.85));
+    }
+    .hourly-toast.variant-rosegold {
+      background: linear-gradient(135deg, rgba(255, 250, 247, 0.92), rgba(243, 207, 196, 0.82));
+    }
+    .toast-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe5ec, #e6d6f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(217, 155, 140, 0.25);
+      animation: gentleBob 2s ease-in-out infinite;
+    }
+    @keyframes gentleBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    .toast-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .toast-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-gold-deep);
+      margin-bottom: 2px;
+    }
+    .toast-msg {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    /* Countdown Section */
+    .countdown-card {
+      width: 100%;
+      max-width: 520px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 26px;
+      padding: 18px 20px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .countdown-date {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--rose-gold-deep);
+    }
+    .countdown-subtitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 3vw, 1.25rem);
+      color: var(--text-soft);
+      margin-top: -6px;
+    }
+
+    .countdown-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .time-box {
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      padding: 12px 6px 10px;
+      box-shadow: 0 8px 20px rgba(181, 108, 99, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .time-value {
+      font-size: clamp(1.45rem, 5vw, 2rem);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-main);
+      line-height: 1;
+      display: inline-block;
+    }
+    .time-value.tick-anim {
+      animation: digitPop 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes digitPop {
+      0% { transform: translateY(-6px) scale(0.92); opacity: 0.4; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .time-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    /* Special Birthday Mode */
+    .birthday-stage {
+      display: none;
+      width: 100%;
+      max-width: 540px;
+      background: linear-gradient(145deg, rgba(255, 250, 247, 0.84), rgba(255, 229, 236, 0.72));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 24px 60px rgba(181, 108, 99, 0.24), 0 0 40px rgba(248, 200, 220, 0.6);
+      border-radius: 28px;
+      padding: 22px 22px 24px;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      animation: magicalAppear 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .birthday-stage.active {
+      display: flex;
+    }
+    @keyframes magicalAppear {
+      0% { opacity: 0; transform: scale(0.9) translateY(16px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .birthday-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--rose-gold-deep);
+      text-shadow: 0 0 18px rgba(248, 200, 220, 0.95), 0 0 32px rgba(217, 155, 140, 0.5);
+      animation: glowPulse 2.4s ease-in-out infinite alternate;
+    }
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 14px rgba(248, 200, 220, 0.85), 0 0 26px rgba(217, 155, 140, 0.45); }
+      100% { text-shadow: 0 0 24px rgba(255, 214, 224, 1), 0 0 42px rgba(185, 155, 230, 0.75); }
+    }
+
+    .birthday-wish {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--text-main);
+      max-width: 440px;
+    }
+
+    .cake-svg {
+      width: 128px;
+      height: 128px;
+      filter: drop-shadow(0 10px 18px rgba(181, 108, 99, 0.22));
+    }
+    .flame {
+      transform-origin: center bottom;
+      animation: flicker 0.55s ease-in-out infinite alternate;
+    }
+    @keyframes flicker {
+      0% { transform: scaleY(1) skewX(-3deg); opacity: 0.92; }
+      100% { transform: scaleY(1.12) skewX(3deg); opacity: 1; }
+    }
+
+    /* Confetti Canvas & Balloons */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+      display: none;
+    }
+    #confettiCanvas.active {
+      display: block;
+    }
+
+    .balloons-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      overflow: hidden;
+      display: none;
+    }
+    .balloons-layer.active {
+      display: block;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -120px;
+      width: 44px;
+      height: 54px;
+      border-radius: 50% 50% 48% 48%;
+      box-shadow: inset -6px -8px 14px rgba(0,0,0,0.08), inset 6px 8px 14px rgba(255,255,255,0.65);
+      animation: balloonRise var(--dur, 12s) linear infinite var(--delay, 0s);
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -36px;
+      left: 50%;
+      width: 1.5px;
+      height: 36px;
+      background: rgba(181, 108, 99, 0.45);
+    }
+    @keyframes balloonRise {
+      0% { transform: translate3d(0, 0, 0) rotate(-4deg); opacity: 0; }
+      10% { opacity: 0.9; }
+      90% { opacity: 0.85; }
+      100% { transform: translate3d(var(--sway, 30px), -125vh, 0) rotate(5deg); opacity: 0; }
+    }
+
+    /* Footer note */
+    .footer-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      opacity: 0.85;
+      max-width: 480px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 420px) {
+      .app-shell { padding: 12px 12px 18px; gap: 10px; }
+      .countdown-grid { gap: 7px; }
+      .time-box { padding: 10px 4px 8px; border-radius: 14px; }
+      .pill-btn { font-size: 11px; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Continuous Dreamy Background -->
+  <div class="bg-scene" id="bgScene" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+
+  <!-- Birthday Balloons & Confetti -->
+  <div class="balloons-layer" id="balloonsLayer" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- Hourly Reminder Toast -->
+  <div class="hourly-toast" id="hourlyToast" role="status" aria-live="polite">
+    <div class="toast-icon" id="toastIcon">💗</div>
+    <div class="toast-body">
+      <div class="toast-label" id="toastLabel">Hourly Birthday Reminder</div>
+      <div class="toast-msg" id="toastMsg">Another hour closer to your special day! 💗</div>
+    </div>
+  </div>
+
+  <!-- Main Single-Screen Experience -->
+  <main class="app-shell">
+    <!-- Minimal Controls -->
+    <div class="top-bar">
+      <button type="button" class="pill-btn" id="soundToggleBtn" aria-pressed="true">
+        <span id="soundIcon">🔔</span>
+        <span id="soundText">Bell On</span>
+      </button>
+      <button type="button" class="pill-btn" id="notifyBtn">
+        <span>✨</span>
+        <span id="notifyText">Enable Alerts</span>
+      </button>
+      <button type="button" class="pill-btn" id="calendarBtn" title="Download calendar reminder for 21 Nov 2026">
+        <span>📅</span>
+        <span>Save Date</span>
+      </button>
+      <button type="button" class="pill-btn" id="previewHourlyBtn">
+        <span>🎀</span>
+        <span>Preview Hourly</span>
+      </button>
+      <button type="button" class="pill-btn" id="previewBdayBtn">
+        <span>🎂</span>
+        <span id="previewBdayText">Birthday Mode</span>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header class="hero-header">
+      <div class="eyebrow-badge">A Little Birthday Reminder 💗</div>
+      <h1 class="main-title">Counting Every Hour to <span class="script-accent">Sweet 16</span></h1>
+    </header>
+
+    <!-- Hero Circular Clock -->
+    <section class="clock-stage" id="clockStage" aria-label="Birthday Reminder Clock">
+      <div class="clock-aura"></div>
+      <div class="clock-orbit-hearts" aria-hidden="true">
+        <span class="orbit-heart" style="top: -6px; left: 50%;">💗</span>
+        <span class="orbit-heart" style="top: 50%; right: -8px;">✨</span>
+        <span class="orbit-heart" style="bottom: -6px; left: 48%;">🌸</span>
+        <span class="orbit-heart" style="top: 50%; left: -8px;">🎀</span>
+      </div>
+
+      <div class="clock-wrapper" id="clockWrapper">
+        <svg class="clock-svg" viewBox="0 0 300 300" aria-hidden="true">
+          <defs>
+            <linearGradient id="roseGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f3cfc4" />
+              <stop offset="50%" stop-color="#d99b8c" />
+              <stop offset="100%" stop-color="#b56c63" />
+            </linearGradient>
+            <linearGradient id="lavenderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e6d6f5" />
+              <stop offset="100%" stop-color="#b99be6" />
+            </linearGradient>
+          </defs>
+
+          <!-- Delicate Inner Ring -->
+          <circle cx="150" cy="150" r="136" fill="none" stroke="url(#roseGoldGrad)" stroke-width="1.2" stroke-dasharray="3 5" opacity="0.65" />
+          <circle cx="150" cy="150" r="126" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1" />
+
+          <!-- Hour Markers generated by JS -->
+          <g id="hourMarkers"></g>
+
+          <!-- Clock Hands -->
+          <line id="hourHand" class="hand" x1="150" y1="150" x2="150" y2="86" stroke="url(#roseGoldGrad)" stroke-width="5.5" />
+          <line id="minuteHand" class="hand" x1="150" y1="150" x2="150" y2="60" stroke="url(#lavenderGrad)" stroke-width="3.8" />
+          <line id="secondHand" class="hand" x1="150" y1="164" x2="150" y2="44" stroke="#d46b84" stroke-width="1.8" />
+
+          <!-- Center Heart Pin -->
+          <circle cx="150" cy="150" r="7" fill="#fffaf7" stroke="#b56c63" stroke-width="2" />
+          <circle cx="150" cy="150" r="3" fill="#d46b84" />
+        </svg>
+
+        <div class="clock-digital-overlay">
+          <div class="clock-top-badge">21 Nov 2026 • IST</div>
+          <div class="clock-bottom-info">
+            <div class="digital-time" id="digitalTime">12:00:00 PM</div>
+            <div class="days-pill" id="daysRemainingPill">Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="magic-burst-layer" id="magicBurstLayer" aria-hidden="true"></div>
+    </section>
+
+    <!-- Minimal Countdown -->
+    <section class="countdown-card" id="countdownCard" aria-label="Birthday Countdown">
+      <div class="countdown-date">21 NOVEMBER 2026</div>
+      <p class="countdown-subtitle">"Your special day is getting closer..."</p>
+      <div class="countdown-grid">
+        <div class="time-box">
+          <span class="time-value" id="cdDays">00</span>
+          <span class="time-label">Days</span>
+        </div>
+        <div class="time-box">
+          <span class="time-value" id="cdHours">00</span>
+          <span class="time-label">Hours</span>
+        </div>
+        <div class="time-box">
+          <span class="time-value" id="cdMinutes">00</span>
+          <span class="time-label">Minutes</span>
+        </div>
+        <div class="time-box">
+          <span class="time-value" id="cdSeconds">00</span>
+          <span class="time-label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Birthday Mode (Auto-activates on 21 Nov 2026 IST) -->
+    <section class="birthday-stage" id="birthdayStage" aria-label="Happy 16th Birthday">
+      <svg class="cake-svg" viewBox="0 0 120 120" aria-hidden="true">
+        <!-- Plate -->
+        <ellipse cx="60" cy="104" rx="46" ry="8" fill="#f3cfc4" opacity="0.65" />
+        <!-- Bottom Tier -->
+        <rect x="24" y="70" width="72" height="32" rx="10" fill="#ffe5ec" stroke="#d99b8c" stroke-width="1.5" />
+        <path d="M24 78 Q34 86 42 78 T60 78 T78 78 T96 78 L96 72 Q96 70 90 70 L30 70 Q24 70 24 72 Z" fill="#fffaf7" />
+        <!-- Top Tier -->
+        <rect x="36" y="44" width="48" height="26" rx="8" fill="#e6d6f5" stroke="#b99be6" stroke-width="1.5" />
+        <path d="M36 52 Q44 58 52 52 T68 52 T84 52 L84 46 Q84 44 78 44 L42 44 Q36 44 36 46 Z" fill="#fffaf7" />
+        <!-- Candles -->
+        <rect x="47" y="27" width="5" height="17" rx="2.5" fill="#f8c8dc" />
+        <rect x="57.5" y="23" width="5" height="21" rx="2.5" fill="#d99b8c" />
+        <rect x="68" y="27" width="5" height="17" rx="2.5" fill="#b99be6" />
+        <!-- Flames -->
+        <path class="flame" d="M49.5 17 C52 21 52 25 49.5 26.5 C47 25 47 21 49.5 17 Z" fill="#ffd166" />
+        <path class="flame" d="M60 13 C62.5 17 62.5 21 60 22.5 C57.5 21 57.5 17 60 13 Z" fill="#ffb703" />
+        <path class="flame" d="M70.5 17 C73 21 73 25 70.5 26.5 C68 25 68 21 70.5 17 Z" fill="#ffd166" />
+        <!-- Cute Heart on Cake -->
+        <path d="M60 93 C56 89 51 86 51 82.5 C51 80 53 78.5 55.2 78.5 C57 78.5 58.8 79.6 60 81.2 C61.2 79.6 63 78.5 64.8 78.5 C67 78.5 69 80 69 82.5 C69 86 64 89 60 93 Z" fill="#d46b84" />
+      </svg>
+
+      <h2 class="birthday-headline">HAPPY 16TH BIRTHDAY! 💗</h2>
+      <p class="birthday-wish">
+        Sixteen candles, endless dreams, and a whole world waiting to celebrate you.
+        May today sparkle with love, laughter, and every magical moment you deserve! ✨🎀
+      </p>
+    </section>
+
+    <p class="footer-note">
+      Keep this page open for magical hourly reminders in IST — or enable browser alerts / save the date to your calendar.
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Target: 21 November 2026 00:00:00 IST (+05:30)
+      const TARGET_UTC_MS = Date.UTC(2026, 10, 21, 0, 0, 0) - (5.5 * 3600 * 1000);
+      const IST_OFFSET_MS = 5.5 * 3600 * 1000;
+
+      const HOURLY_MESSAGES = [
+        "Another hour closer to your special day! 💗",
+        "Time is ticking, birthday girl! 🎀",
+        "Your special day is getting closer!",
+        "A little reminder that someone is waiting to celebrate you.",
+        "Every hour brings us closer to 21 November!",
+        "Keep smiling, your birthday magic is approaching! ✨",
+        "One more sweet hour closer to turning 16! 🌸",
+        "Counting down every lovely moment until 21 November! 💕",
+        "A gentle chime just to remind you how special you are! 🦋",
+        "Sweet 16 is right around the corner! 🌟"
+      ];
+
+      const TOAST_ICONS = ["💗", "🎀", "✨", "🌸", "🦋", "💕"];
+      const TOAST_VARIANTS = ["", "variant-lavender", "variant-rosegold"];
+
+      // State
+      let soundEnabled = true;
+      let notificationsEnabled = false;
+      let manualBirthdayPreview = false;
+      let lastMessageIdx = -1;
+      let lastTriggeredHourKey = null;
+      let toastTimeout = null;
+      let audioCtx = null;
+      let lastCd = { d: null, h: null, m: null, s: null };
+
+      try {
+        const savedSound = localStorage.getItem('bday_sound_enabled');
+        if (savedSound !== null) soundEnabled = savedSound === 'true';
+      } catch (_) {}
+
+      // DOM Elements
+      const bgScene = document.getElementById('bgScene');
+      const hourMarkersGroup = document.getElementById('hourMarkers');
+      const hourHand = document.getElementById('hourHand');
+      const minuteHand = document.getElementById('minuteHand');
+      const secondHand = document.getElementById('secondHand');
+      const digitalTimeEl = document.getElementById('digitalTime');
+      const daysRemainingPill = document.getElementById('daysRemainingPill');
+      const clockStage = document.getElementById('clockStage');
+      const clockWrapper = document.getElementById('clockWrapper');
+      const magicBurstLayer = document.getElementById('magicBurstLayer');
+
+      const hourlyToast = document.getElementById('hourlyToast');
+      const toastIcon = document.getElementById('toastIcon');
+      const toastLabel = document.getElementById('toastLabel');
+      const toastMsg = document.getElementById('toastMsg');
+
+      const countdownCard = document.getElementById('countdownCard');
+      const birthdayStage = document.getElementById('birthdayStage');
+      const cdDays = document.getElementById('cdDays');
+      const cdHours = document.getElementById('cdHours');
+      const cdMinutes = document.getElementById('cdMinutes');
+      const cdSeconds = document.getElementById('cdSeconds');
+
+      const soundToggleBtn = document.getElementById('soundToggleBtn');
+      const soundIcon = document.getElementById('soundIcon');
+      const soundText = document.getElementById('soundText');
+      const notifyBtn = document.getElementById('notifyBtn');
+      const notifyText = document.getElementById('notifyText');
+      const calendarBtn = document.getElementById('calendarBtn');
+      const previewHourlyBtn = document.getElementById('previewHourlyBtn');
+      const previewBdayBtn = document.getElementById('previewBdayBtn');
+      const previewBdayText = document.getElementById('previewBdayText');
+
+      const balloonsLayer = document.getElementById('balloonsLayer');
+      const confettiCanvas = document.getElementById('confettiCanvas');
+
+      // 1. Build 12 Glowing Clock Hour Markers
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * 30) * (Math.PI / 180);
+        const r = 113;
+        const cx = 150 + r * Math.sin(angle);
+        const cy = 150 - r * Math.cos(angle);
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', cx.toFixed(1));
+        dot.setAttribute('cy', cy.toFixed(1));
+        dot.setAttribute('r', i % 3 === 0 ? '4.2' : '2.4');
+        dot.setAttribute('class', i % 3 === 0 ? 'hour-marker major' : 'hour-marker');
+        hourMarkersGroup.appendChild(dot);
+      }
+
+      // 2. Populate Lightweight Dreamy Background Particles
+      function initBackground() {
+        const frag = document.createDocumentFragment();
+
+        // Twinkling Stars
+        for (let i = 0; i < 24; i++) {
+          const star = document.createElement('div');
+          star.className = 'bg-particle star-dot';
+          const size = (Math.random() * 3 + 2).toFixed(1);
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          star.style.left = (Math.random() * 98) + 'vw';
+          star.style.top = (Math.random() * 92) + 'vh';
+          star.style.setProperty('--dur', (3 + Math.random() * 4).toFixed(1) + 's');
+          star.style.setProperty('--delay', (Math.random() * 4).toFixed(1) + 's');
+          frag.appendChild(star);
+        }
+
+        // Slowly Floating Hearts
+        const heartChars = ['💗', '💕', '💖', '🤍'];
+        for (let i = 0; i < 10; i++) {
+          const h = document.createElement('div');
+          h.className = 'bg-particle float-heart';
+          h.textContent = heartChars[i % heartChars.length];
+          h.style.left = (4 + Math.random() * 90) + 'vw';
+          h.style.fontSize = (12 + Math.random() * 12).toFixed(0) + 'px';
+          h.style.setProperty('--dur', (13 + Math.random() * 10).toFixed(1) + 's');
+          h.style.setProperty('--delay', (Math.random() * 12).toFixed(1) + 's');
+          h.style.setProperty('--sway', (Math.random() * 60 - 30).toFixed(0) + 'px');
+          h.style.setProperty('--rot', (Math.random() * 40 - 20).toFixed(0) + 'deg');
+          h.style.setProperty('--op', (0.35 + Math.random() * 0.35).toFixed(2));
+          frag.appendChild(h);
+        }
+
+        // Falling Flower Petals
+        for (let i = 0; i < 12; i++) {
+          const p = document.createElement('div');
+          p.className = 'bg-particle petal';
+          const w = 9 + Math.random() * 7;
+          p.style.width = w.toFixed(0) + 'px';
+          p.style.height = (w * 1.35).toFixed(0) + 'px';
+          p.style.left = (Math.random() * 96) + 'vw';
+          p.style.setProperty('--dur', (12 + Math.random() * 10).toFixed(1) + 's');
+          p.style.setProperty('--delay', (Math.random() * 10).toFixed(1) + 's');
+          p.style.setProperty('--sway', (Math.random() * 90 - 45).toFixed(0) + 'px');
+          frag.appendChild(p);
+        }
+
+        // Floating Butterflies
+        for (let i = 0; i < 2; i++) {
+          const b = document.createElement('div');
+          b.className = 'bg-particle butterfly';
+          b.style.setProperty('--dur', (22 + i * 7) + 's');
+          b.style.setProperty('--delay', (i * 9) + 's');
+          b.innerHTML = `<svg width="24" height="20" viewBox="0 0 24 20" fill="none">
+            <path d="M12 10 C8 2, 1 3, 2 9 C3 14, 9 13, 12 10 Z" fill="#f8c8dc" opacity="0.85"/>
+            <path d="M12 10 C16 2, 23 3, 22 9 C21 14, 15 13, 12 10 Z" fill="#e6d6f5" opacity="0.85"/>
+            <path d="M12 10 C9 12, 4 17, 7 18 C10 19, 11 14, 12 10 Z" fill="#ffd6e0" opacity="0.8"/>
+            <path d="M12 10 C15 12, 20 17, 17 18 C14 19, 13 14, 12 10 Z" fill="#d8bbff" opacity="0.8"/>
+            <line x1="12" y1="6" x2="12" y2="15" stroke="#b56c63" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>`;
+          frag.appendChild(b);
+        }
+
+        bgScene.appendChild(frag);
+      }
+
+      // 3. Accurate Asia/Kolkata Time Helper
+      function getISTNowParts(nowMs) {
+        const istDate = new Date(nowMs + IST_OFFSET_MS);
+        return {
+          year: istDate.getUTCFullYear(),
+          month: istDate.getUTCMonth() + 1, // 1..12
+          day: istDate.getUTCDate(),
+          hours: istDate.getUTCHours(),
+          minutes: istDate.getUTCMinutes(),
+          seconds: istDate.getUTCSeconds(),
+          ms: istDate.getUTCMilliseconds()
+        };
+      }
+
+      function pad2(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      // 4. Web Audio API Gentle Birthday Bell Chime
+      function playBirthdayBell() {
+        if (!soundEnabled) return;
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
+          if (!audioCtx) audioCtx = new AudioContext();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+
+          const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+          const now = audioCtx.currentTime;
+          notes.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.14);
+
+            gain.gain.setValueAtTime(0.0001, now + idx * 0.14);
+            gain.gain.exponentialRampToValueAtTime(0.11, now + idx * 0.14 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.14 + 1.1);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + idx * 0.14);
+            osc.stop(now + idx * 0.14 + 1.15);
+          });
+        } catch (_) {}
+      }
+
+      // 5. Hourly Reminder Magic
+      function pickRandomMessage() {
+        let idx;
+        do {
+          idx = Math.floor(Math.random() * HOURLY_MESSAGES.length);
+        } while (idx === lastMessageIdx && HOURLY_MESSAGES.length > 1);
+        lastMessageIdx = idx;
+        return HOURLY_MESSAGES[idx];
+      }
+
+      function spawnMagicBurst() {
+        magicBurstLayer.innerHTML = '';
+        const hearts = ['💗', '💖', '💕', '🎀', '✨'];
+        for (let i = 0; i < 10; i++) {
+          const el = document.createElement('div');
+          el.className = 'burst-heart';
+          el.textContent = hearts[i % hearts.length];
+          el.style.setProperty('--bx', ((Math.random() - 0.5) * 220).toFixed(0) + 'px');
+          el.style.setProperty('--by', (-100 - Math.random() * 140).toFixed(0) + 'px');
+          el.style.setProperty('--brot', ((Math.random() - 0.5) * 50).toFixed(0) + 'deg');
+          el.style.setProperty('--bdur', (2.2 + Math.random() * 1.2).toFixed(2) + 's');
+          el.style.animationDelay = (Math.random() * 0.35).toFixed(2) + 's';
+          magicBurstLayer.appendChild(el);
+        }
+        for (let i = 0; i < 14; i++) {
+          const sp = document.createElement('div');
+          sp.className = 'burst-sparkle';
+          const angle = (i / 14) * Math.PI * 2;
+          const dist = 110 + Math.random() * 50;
+          sp.style.setProperty('--sx', (Math.cos(angle) * dist).toFixed(0) + 'px');
+          sp.style.setProperty('--sy', (Math.sin(angle) * dist).toFixed(0) + 'px');
+          sp.style.animationDelay = (Math.random() * 0.25).toFixed(2) + 's';
+          magicBurstLayer.appendChild(sp);
+        }
+      }
+
+      let celebrationOffsetDeg = 0;
+      function triggerHourlyReminder(hourLabel, isPreview) {
+        const message = pickRandomMessage();
+        const variant = TOAST_VARIANTS[Math.floor(Math.random() * TOAST_VARIANTS.length)];
+        const icon = TOAST_ICONS[Math.floor(Math.random() * TOAST_ICONS.length)];
+
+        hourlyToast.className = 'hourly-toast' + (variant ? ' ' + variant : '');
+        toastIcon.textContent = icon;
+        toastLabel.textContent = isPreview ? 'Hourly Reminder Preview' : `${hourLabel} • Hourly Reminder`;
+        toastMsg.textContent = message;
+
+        // Glow + Hand Celebration
+        clockStage.classList.add('hourly-active');
+        clockWrapper.classList.add('hourly-glow');
+        celebrationOffsetDeg += 360;
+        hourHand.classList.add('hand-celebrate');
+        minuteHand.classList.add('hand-celebrate');
+
+        spawnMagicBurst();
+        playBirthdayBell();
+
+        requestAnimationFrame(() => {
+          hourlyToast.classList.add('visible');
+        });
+
+        // Optional Browser Notification
+        if (!isPreview && notificationsEnabled && 'Notification' in window && Notification.permission === 'granted') {
+          try {
+            new Notification('A Little Birthday Reminder 💗', {
+              body: message,
+              tag: 'hourly-birthday-reminder'
+            });
+          } catch (_) {}
+        }
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          hourlyToast.classList.remove('visible');
+          clockStage.classList.remove('hourly-active');
+          clockWrapper.classList.remove('hourly-glow');
+          setTimeout(() => {
+            hourHand.classList.remove('hand-celebrate');
+            minuteHand.classList.remove('hand-celebrate');
+          }, 900);
+        }, 6800);
+      }
+
+      // 6. Special Birthday Mode Confetti & Balloons
+      let confettiParticles = [];
+      let confettiRaf = null;
+
+      function initBalloons() {
+        if (balloonsLayer.childElementCount > 0) return;
+        const colors = ['#f8c8dc', '#e6d6f5', '#ffd6e0', '#f3cfc4', '#fff0f5'];
+        for (let i = 0; i < 14; i++) {
+          const b = document.createElement('div');
+          b.className = 'balloon';
+          b.style.left = (4 + (i * 7) % 92) + 'vw';
+          b.style.background = `radial-gradient(circle at 30% 30%, #ffffff, ${colors[i % colors.length]})`;
+          b.style.setProperty('--dur', (10 + Math.random() * 6).toFixed(1) + 's');
+          b.style.setProperty('--delay', (Math.random() * 8).toFixed(1) + 's');
+          b.style.setProperty('--sway', (Math.random() * 60 - 30).toFixed(0) + 'px');
+          balloonsLayer.appendChild(b);
+        }
+      }
+
+      function startConfetti() {
+        confettiCanvas.classList.add('active');
+        const ctx = confettiCanvas.getContext('2d');
+        const resize = () => {
+          confettiCanvas.width = window.innerWidth;
+          confettiCanvas.height = window.innerHeight;
+        };
+        resize();
+        window.addEventListener('resize', resize);
+
+        const colors = ['#f8c8dc', '#e6d6f5', '#d99b8c', '#ffe5ec', '#b99be6', '#fffaf7'];
+        confettiParticles = Array.from({ length: 75 }, () => ({
+          x: Math.random() * confettiCanvas.width,
+          y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+          w: 6 + Math.random() * 6,
+          h: 4 + Math.random() * 4,
+          vy: 1.4 + Math.random() * 2.2,
+          vx: (Math.random() - 0.5) * 1.2,
+          rot: Math.random() * 360,
+          vrot: (Math.random() - 0.5) * 6,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        }));
+
+        function draw() {
+          if (!confettiCanvas.classList.contains('active')) return;
+          ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+          for (const p of confettiParticles) {
+            p.y += p.vy;
+            p.x += p.vx;
+            p.rot += p.vrot;
+            if (p.y > confettiCanvas.height + 20) {
+              p.y = -20;
+              p.x = Math.random() * confettiCanvas.width;
+            }
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rot * Math.PI) / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            ctx.restore();
+          }
+          confettiRaf = requestAnimationFrame(draw);
+        }
+        if (confettiRaf) cancelAnimationFrame(confettiRaf);
+        draw();
+      }
+
+      function stopConfetti() {
+        confettiCanvas.classList.remove('active');
+        if (confettiRaf) {
+          cancelAnimationFrame(confettiRaf);
+          confettiRaf = null;
+        }
+      }
+
+      function setBirthdayMode(active) {
+        if (active) {
+          countdownCard.style.display = 'none';
+          birthdayStage.classList.add('active');
+          balloonsLayer.classList.add('active');
+          initBalloons();
+          startConfetti();
+          daysRemainingPill.textContent = 'It’s Your 16th Birthday! 🎂';
+        } else {
+          countdownCard.style.display = 'flex';
+          birthdayStage.classList.remove('active');
+          balloonsLayer.classList.remove('active');
+          stopConfetti();
+        }
+      }
+
+      function updateDigit(el, val, key) {
+        const str = pad2(val);
+        if (lastCd[key] !== str) {
+          el.textContent = str;
+          el.classList.remove('tick-anim');
+          void el.offsetWidth;
+          el.classList.add('tick-anim');
+          lastCd[key] = str;
+        }
+      }
+
+      // 7. Main Clock & Countdown Loop
+      let lastDigitalStr = '';
+      function tick() {
+        const nowMs = Date.now();
+        const ist = getISTNowParts(nowMs);
+
+        // Smooth Analog Clock Hands
+        const smoothSec = ist.seconds + ist.ms / 1000;
+        const smoothMin = ist.minutes + smoothSec / 60;
+        const smoothHour = (ist.hours % 12) + smoothMin / 60;
+
+        secondHand.style.transform = `rotate(${smoothSec * 6}deg)`;
+        minuteHand.style.transform = `rotate(${smoothMin * 6 + celebrationOffsetDeg}deg)`;
+        hourHand.style.transform = `rotate(${smoothHour * 30 + celebrationOffsetDeg}deg)`;
+
+        // Digital Readout (update once per second)
+        const ampm = ist.hours >= 12 ? 'PM' : 'AM';
+        const h12 = ist.hours % 12 === 0 ? 12 : ist.hours % 12;
+        const digitalStr = `${pad2(h12)}:${pad2(ist.minutes)}:${pad2(ist.seconds)} ${ampm}`;
+        if (digitalStr !== lastDigitalStr) {
+          lastDigitalStr = digitalStr;
+          digitalTimeEl.innerHTML = `${pad2(h12)}:${pad2(ist.minutes)}:<span class="sec-pulse">${pad2(ist.seconds)}</span> ${ampm}`;
+
+          // Check Hourly Trigger (once per new hour at :00:00)
+          const hourKey = `${ist.year}-${ist.month}-${ist.day}-${ist.hours}`;
+          if (ist.minutes === 0 && ist.seconds === 0 && lastTriggeredHourKey !== hourKey) {
+            lastTriggeredHourKey = hourKey;
+            triggerHourlyReminder(`${pad2(h12)}:00 ${ampm}`, false);
+          }
+
+          // Check Special Birthday Date (21 November 2026 IST)
+          const isBirthdayToday = (ist.year === 2026 && ist.month === 11 && ist.day === 21);
+          const diffMs = Math.max(0, TARGET_UTC_MS - nowMs);
+
+          if (isBirthdayToday || manualBirthdayPreview) {
+            setBirthdayMode(true);
+          } else {
+            setBirthdayMode(false);
+            const totalSec = Math.floor(diffMs / 1000);
+            const d = Math.floor(totalSec / 86400);
+            const h = Math.floor((totalSec % 86400) / 3600);
+            const m = Math.floor((totalSec % 3600) / 60);
+            const s = totalSec % 60;
+
+            updateDigit(cdDays, d, 'd');
+            updateDigit(cdHours, h, 'h');
+            updateDigit(cdMinutes, m, 'm');
+            updateDigit(cdSeconds, s, 's');
+
+            if (diffMs === 0) {
+              daysRemainingPill.textContent = 'Happy Belated Sweet 16! 💗';
+            } else {
+              daysRemainingPill.textContent = `${d} ${d === 1 ? 'Day' : 'Days'} Remaining`;
+            }
+          }
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      // 8. Interactive Controls
+      function updateSoundUI() {
+        soundIcon.textContent = soundEnabled ? '🔔' : '🔕';
+        soundText.textContent = soundEnabled ? 'Bell On' : 'Muted';
+        soundToggleBtn.classList.toggle('active', soundEnabled);
+        soundToggleBtn.setAttribute('aria-pressed', String(soundEnabled));
+      }
+
+      soundToggleBtn.addEventListener('click', () => {
+        soundEnabled = !soundEnabled;
+        try { localStorage.setItem('bday_sound_enabled', String(soundEnabled)); } catch (_) {}
+        updateSoundUI();
+        if (soundEnabled) playBirthdayBell();
+      });
+
+      function updateNotifyUI() {
+        if (!('Notification' in window)) {
+          notifyText.textContent = 'Alerts Unsupported';
+          notifyBtn.disabled = true;
+          return;
+        }
+        if (Notification.permission === 'granted' && notificationsEnabled) {
+          notifyText.textContent = 'Alerts Active';
+          notifyBtn.classList.add('active');
+        } else if (Notification.permission === 'denied') {
+          notifyText.textContent = 'Alerts Blocked';
+          notifyBtn.classList.remove('active');
+        } else {
+          notifyText.textContent = 'Enable Alerts';
+          notifyBtn.classList.remove('active');
+        }
+      }
+
+      notifyBtn.addEventListener('click', async () => {
+        if (!('Notification' in window)) return;
+        if (Notification.permission === 'granted') {
+          notificationsEnabled = !notificationsEnabled;
+          updateNotifyUI();
+          return;
+        }
+        try {
+          const perm = await Notification.requestPermission();
+          notificationsEnabled = perm === 'granted';
+          updateNotifyUI();
+          if (notificationsEnabled) {
+            new Notification('A Little Birthday Reminder 💗', {
+              body: 'Hourly birthday reminders are now enabled while this page is open!'
+            });
+          }
+        } catch (_) {}
+      });
+
+      calendarBtn.addEventListener('click', () => {
+        const ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Birthday Reminder//Sweet 16//EN',
+          'BEGIN:VEVENT',
+          'UID:sweet16-20261121@birthdayreminder',
+          'DTSTAMP:20261119T000000Z',
+          'DTSTART;VALUE=DATE:20261121',
+          'DTEND;VALUE=DATE:20261122',
+          'SUMMARY:Happy 16th Birthday! 💗',
+          'DESCRIPTION:Special 16th Birthday celebration on 21 November 2026!',
+          'BEGIN:VALARM',
+          'TRIGGER:-PT0M',
+          'ACTION:DISPLAY',
+          'DESCRIPTION:Happy 16th Birthday! 💗',
+          'END:VALARM',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Sweet_16_Birthday_21_Nov_2026.ics';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+
+      previewHourlyBtn.addEventListener('click', () => {
+        triggerHourlyReminder('Preview', true);
+      });
+
+      previewBdayBtn.addEventListener('click', () => {
+        manualBirthdayPreview = !manualBirthdayPreview;
+        previewBdayBtn.classList.toggle('active', manualBirthdayPreview);
+        previewBdayText.textContent = manualBirthdayPreview ? 'Exit Preview' : 'Birthday Mode';
+        lastDigitalStr = ''; // force immediate UI refresh
+      });
+
+      // Init
+      initBackground();
+      updateSoundUI();
+      if ('Notification' in window && Notification.permission === 'granted') {
+        notificationsEnabled = true;
+      }
+      updateNotifyUI();
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>
